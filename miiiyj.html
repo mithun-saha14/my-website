@@ -1,0 +1,558 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mithun Saha | 3D Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+.bg-animation{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+.bg-animation span{
+    position:absolute;
+    bottom:-150px;
+    display:block;
+    border-radius:50%;
+    background:rgba(56,189,248,0.15);
+    box-shadow:0 0 20px #38bdf8;
+    animation:float 20s linear infinite;
+}
+
+.bg-animation span:nth-child(1){left:10%;width:80px;height:80px;}
+.bg-animation span:nth-child(2){left:25%;width:40px;height:40px;}
+.bg-animation span:nth-child(3){left:45%;width:100px;height:100px;}
+.bg-animation span:nth-child(4){left:65%;width:60px;height:60px;}
+.bg-animation span:nth-child(5){left:85%;width:90px;height:90px;}
+
+@keyframes float{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-1200px);opacity:0;}
+}
+
+/* NAVBAR */
+nav{
+    width:100%;
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:rgba(5,8,22,0.75);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#38bdf8;
+    text-shadow:0 0 12px #38bdf8;
+}
+
+nav ul{
+    display:flex;
+    gap:12px;
+    list-style:none;
+    flex-wrap:wrap;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    font-weight:600;
+    padding:12px 18px;
+    border-radius:14px;
+    background:linear-gradient(135deg,rgba(56,189,248,0.18),rgba(139,92,246,0.18),rgba(236,72,153,0.18));
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    transform:translateY(-4px);
+    background:linear-gradient(135deg,#38bdf8,#8b5cf6,#ec4899);
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:120px 8% 0;
+    gap:60px;
+}
+
+.hero-text h1{
+    font-size:65px;
+}
+
+.hero-text h1 span{
+    color:#38bdf8;
+}
+
+.hero-text h3{
+    font-size:28px;
+    color:#cbd5e1;
+}
+
+.hero-text p{
+    margin-top:20px;
+    color:#d1d5db;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+    border-radius:50px;
+    color:white;
+    text-decoration:none;
+}
+
+/* CARD */
+.card3d{
+    width:320px;
+    height:420px;
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.card3d img{
+    width:250px;
+}
+
+/* SECTIONS */
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    color:#38bdf8;
+    margin-bottom:50px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+.socials a{
+    display:inline-block;
+    margin:10px;
+    padding:10px 20px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50px;
+    color:white;
+    text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:rgba(255,255,255,0.05);
+    color:#94a3b8;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-animation">
+    <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">Mithun.</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-text">
+<h1>Hello, I'm <span>Mithun Saha</span></h1>
+<h3>Aspiring Software Engineer | SQA • UI/UX • System Analysis & Design | AI & Web Development </h3>
+<p>
+ a Computer Science and Engineering student at United International University, driven by the challenge of transforming ideas and complex problems into reliable, user-friendly software solutions. My approach to technology combines Software Quality Assurance (SQA), UI/UX design, and System Analysis & Design, allowing me to understand and contribute to the full software development lifecycle
+</p>
+<a class="btn" href="#projects">Explore Projects</a>
+</div>
+
+<div class="hero-image">
+<div class="card3d">
+<img src="./mithun.png">
+</div>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2 class="section-title">About</h2>
+<div class="card">
+I enjoy working on real-world problems where thoughtful design, structured analysis, and quality assurance come together to build efficient digital products. Through hands-on projects, I continue to strengthen my skills in Web Development, SQL, and AI-driven tools, focusing on creating systems that are not only functional but also intuitive and scalable. <br>
+
+Core Technical Competencies <br>
+Software Quality & Testing: Ensuring reliability and performance through SQA practices and testing methodologies. <br>
+User Experience & Design: Designing intuitive interfaces and improving usability through UI/UX principles. <br>
+System Analysis & Development: Translating requirements into structured system designs and functional web applications. <br>
+Beyond technical implementation, I am committed to continuous learning and improving my problem-solving abilities. Whether analyzing system requirements, designing interfaces, or building web solutions, my goal is to create technology that delivers meaningful value to users. <br>
+
+I am currently seeking entry-level Software Engineer opportunities where I can apply my skills, collaborate with experienced teams, and grow as a software professional.
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Programming</h3>
+
+            <ul>
+                <li>C</li>
+                <li>C++</li>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>PHP</li>
+                 <li>Object-Oriented Programming (OOP)</li>
+                <li>Data Structures & Algorithms (DSA)</li>
+
+                <li>Problem Solving</li>
+            </ul>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Web Development</h3>
+
+            <ul>
+                  <li>HTML5, CSS3</li>
+      <li>JavaScript (ES6+)</li>
+      <li>React.js / Next.js</li>
+      <li>Node.js / Express.js</li>
+      <li>REST API Development</li>
+      <li>MongoDB / MySQL / PostgreSQL</li>
+      <li>Authentication (JWT, OAuth)</li>
+      <li>Responsive Design</li>
+            </ul>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Tools</h3>
+
+            <ul>
+                  <li>Git & GitHub</li>
+      <li>Docker (Basics)</li>
+      <li>VS Code</li>
+      <li>Postman</li>
+      <li>Figma (UI/UX basics)</li>
+      <li>Firebase</li>
+      <li>Linux (Basic commands)</li>
+      <li>CI/CD (GitHub Actions – basic)</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+
+    <h2 class="section-title">Education</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>BSc in Computer Science & Engineering (CSE) </h3>
+
+            <p>
+                <br>
+                United International University, Dhaka  <br>
+                2022 - Present <br>
+            </p>
+
+        </div>
+        <div class="card">
+
+            <h3>Higher Secondary Examination (HSC)</h3>
+
+            <p>
+                  2018 — 2020 <br>
+                     Rajshahi College, Rajshahi. <br>
+          ·  GPA: 5.00 / 5.00 <br>
+          Science group with Mathematics, Physics, Chemistry & ICT. Achieved perfect GPA, ranked 3rd among 400+ students. Active in science fair and math olympiad.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Secondary School Certificate (SSC)</h3>
+
+            <p>
+                  2010 — 2018 <br>
+
+Naogaon K.D Govt. High School· <br>  GPA: 5.00 / 5.00 <br>
+Perfect score. School prefect and president of the Computer Club.
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+           
+
+                 <h3>Farmland (Smart Agriculture Platform)</h3>
+
+<p>
+  Farmland is a smart agriculture-based web platform designed to assist farmers 
+  with modern technology-driven solutions.  
+</p>
+
+<ul>
+  <li>Crop recommendation system  </li>
+  <li>Weather forecasting integration for better planning</li>
+  <li>Fertilizer recommendation for optimized crop growth</li>
+  <li>Agricultural equipment rental system</li>
+  <li>Warehouse rental management  </li> <br>
+ </ul>
+
+<p>
+  <strong>Technologies:</strong> React.js, Node.js, Express.js, MongoDB, REST API
+</p>
+
+<p>
+  <strong>Live Demo:</strong> <a href="#">View Project</a> <br>
+  <strong>GitHub:</strong> <a href="#">Source Code</a>
+</p>
+             
+
+        </div>
+
+        <div class="card">
+
+            <h3>Avijatri</h3>
+
+<p>
+  Avijatri is a full-stack tour management and hotel booking system that helps users plan and manage their trips بسهولة. 
+  The platform provides destination discovery, hotel booking, and user-friendly trip management features. <br>
+</p>
+
+<ul>
+  <li>Explore and search destinations</li>
+  <li>Hotel booking with dynamic data</li>
+  <li>User authentication (login/register)</li>
+  <li>Responsive UI for all devices</li> <br>
+</ul>
+
+<p><strong>Technologies:</strong> React.js, Node.js, Express.js, MongoDB</p>
+<p>
+  <strong>Live Demo:</strong> <a href="#">View Project</a> <br>
+  <strong>GitHub:</strong> <a href="#">Source Code</a>
+</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>AI Career Guidance</h3>
+
+<p>
+  AI Career Guidance is a smart web application that provides personalized 
+  career recommendations and job matching using artificial intelligence. 
+  It helps users identify suitable career paths based on their skills, 
+  interests, and preferences. <br>
+</p>
+
+<ul>
+  <li>AI-based career recommendation system</li>
+  <li>Skill and interest-based job matching</li>
+  <li>User profile and data analysis</li>
+  <li>Interactive and user-friendly interface</li>
+  <li>Responsive design for all devices</li> <br>
+</ul>
+
+<p>
+  <strong>Technologies:</strong> Python, Machine Learning, React.js, Node.js
+</p>
+
+<p>
+  <strong>Live Demo:</strong> <a href="#">View Project</a> <br>
+  <strong>GitHub:</strong> <a href="#">Source Code</a>
+</p>
+
+
+
+             
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<h2 class="section-title">Experience</h2>
+<div class="grid">
+
+<div class="card">
+<p>Web Development Projects (Frontend + Backend)</p>
+
+<ul>
+    <li>TechBazer (Ecommerce Website)</li>
+    <li>FarmLand (Smart Farming) </li>
+    <li>Avijatri ( Tour &Hote Management) </li>
+    <li> AI Career Guidance </li>
+    <li> Cilvil Enginnering Platform - FYDP
+         </li>
+</ul>
+</div>
+
+<div class="card">
+<p> Currently building full-stack web applications and AI-based systems as part of academic and personal projects. 
+  Focused on developing practical solutions using modern technologies like React, Node.js, and MongoDB.
+</p></p>
+</div>
+
+</div>
+</section>
+
+<section id="awards">
+
+    <h2 class="section-title">Awards & Achievements</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <p>Participated in university software showcases</p>
+        </div>
+
+        <div class="card">
+            <p>Built multiple AI and web projects</p>
+        </div>
+
+        <div class="card">
+            <p>Active participant in programming activities</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<h2 class="section-title">Contact</h2>
+
+<p>Email: mithunsaha1453@gmail.com</p>
+<p>Phone: +8801757610894</p>
+<p>Address: Dhaka, Bangladesh</p>
+
+<div class="socials">
+<a href="https://www.linkedin.com/feed/">LinkedIn</a>
+<a href="#">GitHub</a>
+<a href="https://www.facebook.com/mithun.saha.400966/">Facebook</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 Mithun Saha
+</footer>
+
+</body>
+</html>
